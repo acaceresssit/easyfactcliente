@@ -1,0 +1,114 @@
+<header id="header" class="animated fadeInDown">
+
+  <div id="logo-group">
+    <span id="logo"> <img src="assets/img/logo.png" alt="SmartAdmin"> </span>
+  </div>
+
+  <span id="extr-page-header-space">
+        <span class="hidden-mobile hiddex-xs">Already registered?</span> <a routerLink="/auth/login" class="btn btn-danger">Sign In</a> </span>
+
+</header>
+<div id="main" role="main" class="animated fadeInDown">
+
+    <p-growl [(value)]="msgs"></p-growl>
+
+  <!-- MAIN CONTENT -->
+  <div id="content" class="container">
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 hidden-xs hidden-sm">
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+        <div class="well no-padding">
+
+          <form id="smart-form-register" class="smart-form client-form">
+            <header>
+                Envíe a su correo electrónico su comprobante electrónico
+            </header>
+
+            <fieldset>
+              <section>
+                <label class="select">
+                    <select name="tipoComprobante" [(ngModel)]="consultaComprobante.tipoComprobante">
+                        <option value="0" selected disabled>Tipo de Comprobante</option>
+                        <option value="01">Factura</option>
+                        <option value="03">Boleta</option>
+                        <option value="07">Nota de Crédito</option>
+                        <option value="08">Nota de Débito</option>
+                    </select><i></i>
+                </label>
+              </section>
+
+              <section>
+                <label class="input">
+                  <input type="serieYNumero" name="serieYNumero"  [(ngModel)]="consultaComprobante.serieYNumero" placeholder="Serie y Numero :::: Ejemplo: FA01-17">
+                </label>
+              </section>
+
+              <section>
+                <label class="input">
+                  <input type="text" name="ruc" [(ngModel)]="consultaComprobante.ruc" placeholder="Ruc de la empresa que le emitio el comprobante" id="ruc">
+                </label>
+              </section>
+
+              <section>
+                <label class="input">
+                  <input type="text" name="fechaEmision" [(ngModel)]="consultaComprobante.fechaEmision" placeholder="Fecha Emisión :::: Ejemplo: 15/06/2016 ">
+                  </label>
+              </section>
+
+              <section>
+                <label class="input">
+                  <input type="text" name="montoTotalComprobante" [(ngModel)]="consultaComprobante.montoTotalComprobante"  placeholder="Monto total del Comprobante ">
+                </label>
+              </section>
+
+            </fieldset>
+
+
+            <fieldset>
+
+                <section >
+                  <label class="input">
+                    Ingrese su correo electrónico
+                  </label>
+                </section>
+
+
+
+                <section>
+                    <label class="input"> <i class="icon-append fa fa-envelope"></i>
+                        <input type="email" name="email"  [(ngModel)]="consultaComprobante.email" placeholder="Email address">
+                        <b class="tooltip tooltip-bottom-right">Ingrese su correo electrónico</b>
+                    </label>
+
+                </section>
+
+
+
+            </fieldset>
+
+
+            <footer >
+
+                <button (click)="submitConsultaComprobante()" class="btn btn-primary">
+                    Enviar
+                </button>
+
+            </footer>
+
+            <div class="message">
+              <i class="fa fa-check"></i>
+              <p>
+                Thank you for your registration!
+              </p>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
